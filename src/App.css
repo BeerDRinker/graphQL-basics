@@ -1,0 +1,52 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background: lightgreen;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+a {
+  color: black;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+h4 {
+  margin: 10px;
+}
+
+h6 {
+  margin: 5px;
+}
+
+.Loading {
+  color: brown;
+}
+
+.PostForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.PostForm input {
+  margin-bottom: 10px;
+}
+
+.PostForm button {
+  margin-top: 10px;
+}
