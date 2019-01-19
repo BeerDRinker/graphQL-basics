@@ -3,6 +3,7 @@ import { Query } from "react-apollo";
 import gql from 'graphql-tag'
 
 import UpdatePost from '../Posts/UpdatePost'
+import EditMode from '../Posts/EditMode'
 
 const POST_QUERY = gql`
   query post($id: ID!){
@@ -11,7 +12,9 @@ const POST_QUERY = gql`
 			title
 			body
   	}
-}`
+		isEditMode @client
+	}
+`;
 
 export default class Post extends Component {
 	render() {
@@ -25,17 +28,22 @@ export default class Post extends Component {
 			>
 				{({ data, loading }) => {
 					if(loading) return (<p>Loading...</p>)
-					const { post } = data
+					const { post, isEditMode } = data
 					return (
 						<Fragment>
-							<section>
-								<h2>{post.title}</h2>
-								<p>{post.body}</p>
-							</section>
-							<section>
-								<h4>Edit Post</h4>
-								<UpdatePost post={post} />
-							</section>
+							<EditMode isEditMode={isEditMode} />
+							{ isEditMode
+								?
+								<section>
+									<h4>Edit Post</h4>
+									<UpdatePost post={post} />
+								</section>
+								:
+								<section>
+									<h2>{post.title}</h2>
+									<p>{post.body}</p>
+								</section>
+							}
 						</Fragment>
 					)
 				}}
