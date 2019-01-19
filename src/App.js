@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import ApolloClient from "apollo-boost";
-import { ApolloProvider } from "react-apollo";
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 import Post from './Posts/Post'
@@ -9,27 +7,10 @@ import NewPost from './Posts/NewPost'
 
 import './App.css';
 
-const defaultState = {
-  isEditMode: false,
-}
-
-const client = new ApolloClient({
-  uri: 'https://api-euwest.graphcms.com/v1/cjqtmixrn1qq301hq6lctjuab/master',
-  clientState: {
-    defaults: defaultState,
-    resolvers: {}
-  }
-})
-
-// client.query({
-//   query: testQuery
-// }).then(res => console.log(res))
-
 class App extends Component {
  
   render() {
     return (
-      <ApolloProvider client={client}>
         <Router>
           <div className="App">
             <header className="App-header">
@@ -45,7 +26,6 @@ class App extends Component {
             </header>
           </div>
         </Router>
-      </ApolloProvider>
     );
   }
 }
