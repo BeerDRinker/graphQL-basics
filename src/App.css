@@ -50,3 +50,12 @@ h6 {
 .PostForm button {
   margin-top: 10px;
 }
+
+.postTitle {
+  display: flex;
+  align-items: center;
+}
+
+.postTitle h2 {
+  margin-right: 15px;
+}
